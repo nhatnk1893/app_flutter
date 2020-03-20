@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: MainScreen(),
       ),
     );
-    Provider.of<HomeProvider>(context, listen: false).fetchData;
+    Provider.of<HomeProvider>(context, listen: false).loadBook;
   }
 
   @override

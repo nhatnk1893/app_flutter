@@ -19,62 +19,43 @@ class _MainScreenState extends State<MainScreen> {
     return WillPopScope(
       onWillPop: () => null,
       child: Scaffold(
-        body: PageView(
-          physics: NeverScrollableScrollPhysics(),
-          controller: _pageController,
-          onPageChanged: onPageChanged,
-          children: <Widget>[
-            HomeScreen(),
-          ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Theme.of(context).primaryColor,
-          selectedItemColor: Theme.of(context).accentColor,
-          unselectedItemColor: Colors.grey[500],
-          elevation: 20,
-          type: BottomNavigationBarType.fixed,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                Feather.home,
+          body: PageView(
+            physics: NeverScrollableScrollPhysics(),
+            controller: _pageController,
+            onPageChanged: onPageChanged,
+            children: <Widget>[
+              HomeScreen(),
+            ],
+          ),
+          bottomNavigationBar: BottomNavigationBar(
+            backgroundColor: Theme.of(context).primaryColor,
+            selectedItemColor: Theme.of(context).accentColor,
+            unselectedItemColor: Colors.grey[500],
+            elevation: 20,
+            type: BottomNavigationBarType.fixed,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Feather.home,
+                ),
+                title: SizedBox(),
               ),
-              title: SizedBox(),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Feather.compass,
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Feather.compass,
+                ),
+                title: SizedBox(),
               ),
-              title: SizedBox(),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Feather.settings,
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Feather.settings,
+                ),
+                title: SizedBox(),
               ),
-              title: SizedBox(),
-            ),
-          ],
-          onTap: navigationTapped,
-          currentIndex: _page,
-        ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            var v = Provider.of<AppProvider>(context).themeData ==
-                    ConstantsApp.lightTheme
-                ? false
-                : true;
-            if (v) {
-              Provider.of<AppProvider>(context, listen: false)
-                  .setTheme(ConstantsApp.darkTheme, "dark");
-            } else {
-              Provider.of<AppProvider>(context, listen: false)
-                  .setTheme(ConstantsApp.lightTheme, "light");
-            }
-          },
-          label: Text('Toggle'),
-          icon: Icon(Feather.toggle_right),
-          backgroundColor: ConstantsApp.lightAccent,
-        ),
-      ),
+            ],
+            onTap: navigationTapped,
+            currentIndex: _page,
+          )),
     );
   }
 

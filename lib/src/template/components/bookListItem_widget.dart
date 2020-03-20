@@ -6,7 +6,7 @@ import 'package:uuid/uuid.dart';
 class BookListItem extends StatelessWidget {
   final String img;
   final String title;
-  final String author;
+  final List<String> author;
   final String desc;
   final Book book;
 

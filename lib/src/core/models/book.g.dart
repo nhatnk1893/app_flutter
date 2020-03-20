@@ -8,19 +8,30 @@ part of 'book.dart';
 
 Book _$BookFromJson(Map<String, dynamic> json) {
   return Book(
-    json['bookId'] as int,
-    json['name'] as String,
-    json['isComplete'] as bool,
-    json['thumnail'] as String,
-    json['chapters'] as int,
-    json['author'] as String,
-    json['description'] as String,
-    json['startDate'] == null
+    bookId: json['bookId'] as int,
+    name: json['name'] as String,
+    isComplete: json['isComplete'] as bool,
+    thumnail: json['thumnail'] as String,
+    chapters: json['chapters'] as int,
+    description: json['description'] as String,
+    startDate: json['startDate'] == null
         ? null
         : DateTime.parse(json['startDate'] as String),
-    json['updateDate'] == null
+    updateDate: json['updateDate'] == null
         ? null
         : DateTime.parse(json['updateDate'] as String),
+    author: (json['author'] as List)
+        ?.map((e) =>
+            e == null ? null : Author.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
+    category: (json['category'] as List)
+        ?.map((e) =>
+            e == null ? null : Category.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
+    link: (json['link'] as List)
+        ?.map(
+            (e) => e == null ? null : Link.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -30,8 +41,10 @@ Map<String, dynamic> _$BookToJson(Book instance) => <String, dynamic>{
       'isComplete': instance.isComplete,
       'thumnail': instance.thumnail,
       'chapters': instance.chapters,
-      'author': instance.author,
       'description': instance.description,
       'startDate': instance.startDate?.toIso8601String(),
       'updateDate': instance.updateDate?.toIso8601String(),
+      'author': instance.author,
+      'category': instance.category,
+      'link': instance.link,
     };
