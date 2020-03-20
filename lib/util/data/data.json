@@ -1,0 +1,32 @@
+{
+    "product": "Book Store",
+    "version": 1,
+    "data": [
+        {
+            "bookID": 1,
+            "name": "Tiên nghịch",
+            "chapter": 2000,
+            "description": "Có con chim vành khuyên nhỏ",
+            "startDate": "2011-07-31T17:00:00.000Z",
+            "isComplete": true,
+            "author": [
+                {
+                    "name": "Nhĩ Căn",
+                    "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
+                }
+            ],
+            "link": [
+                {
+                    "id": 1,
+                    "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
+                }
+            ],
+            "category": [
+                {
+                    "id": 1,
+                    "name": "Tiên Hiệp"
+                }
+            ]
+        }
+    ]
+}
