@@ -1,32 +1,366 @@
-{
-    "product": "Book Store",
-    "version": 1,
-    "data": [
-        {
-            "bookID": 1,
-            "name": "Tiên nghịch",
-            "chapter": 2000,
-            "description": "Có con chim vành khuyên nhỏ",
-            "startDate": "2011-07-31T17:00:00.000Z",
-            "isComplete": true,
-            "author": [
-                {
-                    "name": "Nhĩ Căn",
-                    "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
-                }
-            ],
-            "link": [
-                {
-                    "id": 1,
-                    "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
-                }
-            ],
-            "category": [
-                {
-                    "id": 1,
-                    "name": "Tiên Hiệp"
-                }
-            ]
-        }
-    ]
-}
+[
+    {
+        "bookId": "1",
+        "name": "Gwen Yost",
+        "isComplete": true,
+        "thumnail": "https://s3.amazonaws.com/uifaces/faces/twitter/jeremyworboys/128.jpg",
+        "chapters": 79242,
+        "description": "District",
+        "startDate": "2020-04-18T21:52:39.812Z",
+        "updateDate": "2020-12-26T00:55:47.763Z",
+        "author": [
+            {
+                "name": "Nhĩ Căn",
+                "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "link": [
+            {
+                "id": 1,
+                "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "category": [
+            {
+                "id": 1,
+                "name": "Tiên Hiệp"
+            }
+        ]
+    },
+    {
+        "bookId": "2",
+        "name": "Clovis Cole",
+        "isComplete": false,
+        "thumnail": "https://s3.amazonaws.com/uifaces/faces/twitter/smalonso/128.jpg",
+        "chapters": 340,
+        "description": "Legacy",
+        "startDate": "2020-12-26T11:20:16.134Z",
+        "updateDate": "2020-08-04T23:49:37.528Z",
+        "author": [
+            {
+                "name": "Nhĩ Căn",
+                "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "link": [
+            {
+                "id": 1,
+                "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "category": [
+            {
+                "id": 1,
+                "name": "Tiên Hiệp"
+            }
+        ]
+    },
+    {
+        "bookId": "3",
+        "name": "Ray West",
+        "isComplete": false,
+        "thumnail": "https://s3.amazonaws.com/uifaces/faces/twitter/kijanmaharjan/128.jpg",
+        "chapters": 33083,
+        "description": "Global",
+        "startDate": "2020-05-09T07:51:43.714Z",
+        "updateDate": "2020-08-16T14:28:31.989Z",
+        "author": [
+            {
+                "name": "Nhĩ Căn",
+                "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "link": [
+            {
+                "id": 1,
+                "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "category": [
+            {
+                "id": 1,
+                "name": "Tiên Hiệp"
+            }
+        ]
+    },
+    {
+        "bookId": "4",
+        "name": "Boris Padberg",
+        "isComplete": true,
+        "thumnail": "https://s3.amazonaws.com/uifaces/faces/twitter/juangomezw/128.jpg",
+        "chapters": 1690,
+        "description": "Central",
+        "startDate": "2020-12-22T22:36:36.851Z",
+        "updateDate": "2020-10-26T05:11:17.486Z",
+        "author": [
+            {
+                "name": "Nhĩ Căn",
+                "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "link": [
+            {
+                "id": 1,
+                "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "category": [
+            {
+                "id": 1,
+                "name": "Tiên Hiệp"
+            }
+        ]
+    },
+    {
+        "bookId": "5",
+        "name": "Milford Crona",
+        "isComplete": true,
+        "thumnail": "https://s3.amazonaws.com/uifaces/faces/twitter/davidcazalis/128.jpg",
+        "chapters": 67206,
+        "description": "Future",
+        "startDate": "2020-12-26T13:36:59.675Z",
+        "updateDate": "2020-10-12T06:06:10.118Z",
+        "author": [
+            {
+                "name": "Nhĩ Căn",
+                "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "link": [
+            {
+                "id": 1,
+                "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "category": [
+            {
+                "id": 1,
+                "name": "Tiên Hiệp"
+            }
+        ]
+    },
+    {
+        "bookId": "6",
+        "name": "Freeda Weissnat",
+        "isComplete": true,
+        "thumnail": "https://s3.amazonaws.com/uifaces/faces/twitter/vocino/128.jpg",
+        "chapters": 13066,
+        "description": "District",
+        "startDate": "2020-11-09T19:42:36.458Z",
+        "updateDate": "2020-10-02T14:25:37.392Z",
+        "author": [
+            {
+                "name": "Nhĩ Căn",
+                "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "link": [
+            {
+                "id": 1,
+                "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "category": [
+            {
+                "id": 1,
+                "name": "Tiên Hiệp"
+            }
+        ]
+    },
+    {
+        "bookId": "7",
+        "name": "Cruz Konopelski V",
+        "isComplete": false,
+        "thumnail": "https://s3.amazonaws.com/uifaces/faces/twitter/malgordon/128.jpg",
+        "chapters": 39848,
+        "description": "Customer",
+        "startDate": "2020-05-23T22:41:11.527Z",
+        "updateDate": "2020-04-21T18:26:10.635Z",
+        "author": [
+            {
+                "name": "Nhĩ Căn",
+                "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "link": [
+            {
+                "id": 1,
+                "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "category": [
+            {
+                "id": 1,
+                "name": "Tiên Hiệp"
+            }
+        ]
+    },
+    {
+        "bookId": "8",
+        "name": "Tia Schneider",
+        "isComplete": true,
+        "thumnail": "https://s3.amazonaws.com/uifaces/faces/twitter/colgruv/128.jpg",
+        "chapters": 46490,
+        "description": "Dynamic",
+        "startDate": "2020-08-23T08:05:31.972Z",
+        "updateDate": "2020-05-13T23:58:32.543Z",
+        "author": [
+            {
+                "name": "Nhĩ Căn",
+                "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "link": [
+            {
+                "id": 1,
+                "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "category": [
+            {
+                "id": 1,
+                "name": "Tiên Hiệp"
+            }
+        ]
+    },
+    {
+        "bookId": "9",
+        "name": "Tyrell Miller",
+        "isComplete": true,
+        "thumnail": "https://s3.amazonaws.com/uifaces/faces/twitter/normanbox/128.jpg",
+        "chapters": 7063,
+        "description": "Direct",
+        "startDate": "2021-02-18T15:35:08.858Z",
+        "updateDate": "2020-08-20T08:50:14.764Z",
+        "author": [
+            {
+                "name": "Nhĩ Căn",
+                "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "link": [
+            {
+                "id": 1,
+                "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "category": [
+            {
+                "id": 1,
+                "name": "Tiên Hiệp"
+            }
+        ]
+    },
+    {
+        "bookId": "10",
+        "name": "Tommie Runte",
+        "isComplete": true,
+        "thumnail": "https://s3.amazonaws.com/uifaces/faces/twitter/teylorfeliz/128.jpg",
+        "chapters": 1968,
+        "description": "Future",
+        "startDate": "2020-08-28T13:13:31.150Z",
+        "updateDate": "2020-10-26T01:00:31.529Z",
+        "author": [
+            {
+                "name": "Nhĩ Căn",
+                "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "link": [
+            {
+                "id": 1,
+                "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "category": [
+            {
+                "id": 1,
+                "name": "Tiên Hiệp"
+            }
+        ]
+    },
+    {
+        "bookId": "11",
+        "name": "Ms. Jaylen Terry",
+        "isComplete": false,
+        "thumnail": "https://s3.amazonaws.com/uifaces/faces/twitter/bagawarman/128.jpg",
+        "chapters": 80195,
+        "description": "Central",
+        "startDate": "2020-06-27T13:44:41.346Z",
+        "updateDate": "2020-07-08T23:45:57.800Z",
+        "author": [
+            {
+                "name": "Nhĩ Căn",
+                "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "link": [
+            {
+                "id": 1,
+                "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "category": [
+            {
+                "id": 1,
+                "name": "Tiên Hiệp"
+            }
+        ]
+    },
+    {
+        "bookId": "12",
+        "name": "Herman Schaden",
+        "isComplete": true,
+        "thumnail": "https://s3.amazonaws.com/uifaces/faces/twitter/klimmka/128.jpg",
+        "chapters": 2683,
+        "description": "Lead",
+        "startDate": "2020-08-21T06:34:23.796Z",
+        "updateDate": "2020-09-21T14:18:28.035Z",
+        "author": [
+            {
+                "name": "Nhĩ Căn",
+                "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "link": [
+            {
+                "id": 1,
+                "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "category": [
+            {
+                "id": 1,
+                "name": "Tiên Hiệp"
+            }
+        ]
+    },
+    {
+        "bookId": "13",
+        "name": "Kaycee Brown",
+        "isComplete": false,
+        "thumnail": "https://s3.amazonaws.com/uifaces/faces/twitter/johndezember/128.jpg",
+        "chapters": 41855,
+        "description": "Dynamic",
+        "startDate": "2020-09-03T00:55:14.017Z",
+        "updateDate": "2020-04-06T00:57:47.925Z",
+        "author": [
+            {
+                "name": "Nhĩ Căn",
+                "urlAvatar": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "link": [
+            {
+                "id": 1,
+                "urlChapter": "https://i.imgur.com/T3cgTu4.jpg"
+            }
+        ],
+        "category": [
+            {
+                "id": 1,
+                "name": "Tiên Hiệp"
+            }
+        ]
+    }
+]

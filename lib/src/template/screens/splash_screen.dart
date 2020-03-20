@@ -1,10 +1,12 @@
 import 'dart:async';
 
+import 'package:app_flutter/src/core/providers/home_provider.dart';
+import 'package:app_flutter/src/template/components/splash_widget.dart';
 import 'package:app_flutter/src/template/screens/main_screen.dart';
-import 'package:app_flutter/src/template/components/splash.dart';
 import 'package:app_flutter/util/constants/constant_splash.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -29,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: MainScreen(),
       ),
     );
-    // Provider.of<HomeProvider>(context, listen: false).getFeeds();
+    Provider.of<HomeProvider>(context, listen: false).fetchData;
   }
 
   @override
@@ -41,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SplashComponent(),
+      body: SplashWidget(),
     );
   }
 }

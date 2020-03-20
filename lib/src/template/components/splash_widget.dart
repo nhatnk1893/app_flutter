@@ -2,7 +2,7 @@ import 'package:app_flutter/util/constants/constant_app.dart';
 import 'package:app_flutter/util/constants/constant_splash.dart';
 import 'package:flutter/material.dart';
 
-class SplashComponent extends StatelessWidget {
+class SplashWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -17,12 +17,12 @@ class SplashComponent extends StatelessWidget {
         ),
         SizedBox(height: ConstantSplash.heightSizeBox),
         Text(
-          "${ConstantApp.appName}",
+          "${ConstantsApp.appName}",
           style: TextStyle(
               color: Theme.of(context).accentColor,
               fontSize: ConstantSplash.fontSizeText,
               fontWeight: FontWeight.bold,
-              fontFamily: ConstantApp.fontFamilyDencingFont),
+              fontFamily: ConstantsApp.fontFamilyDencingFont),
         )
       ],
     ));

@@ -11,7 +11,9 @@ Book _$BookFromJson(Map<String, dynamic> json) {
     json['bookId'] as int,
     json['name'] as String,
     json['isComplete'] as bool,
+    json['thumnail'] as String,
     json['chapters'] as int,
+    json['author'] as String,
     json['description'] as String,
     json['startDate'] == null
         ? null
@@ -19,18 +21,6 @@ Book _$BookFromJson(Map<String, dynamic> json) {
     json['updateDate'] == null
         ? null
         : DateTime.parse(json['updateDate'] as String),
-    (json['author'] as List)
-        ?.map((e) =>
-            e == null ? null : Author.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    (json['category'] as List)
-        ?.map((e) =>
-            e == null ? null : Category.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    (json['link'] as List)
-        ?.map(
-            (e) => e == null ? null : Link.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
   );
 }
 
@@ -38,11 +28,10 @@ Map<String, dynamic> _$BookToJson(Book instance) => <String, dynamic>{
       'bookId': instance.bookId,
       'name': instance.name,
       'isComplete': instance.isComplete,
+      'thumnail': instance.thumnail,
       'chapters': instance.chapters,
+      'author': instance.author,
       'description': instance.description,
       'startDate': instance.startDate?.toIso8601String(),
       'updateDate': instance.updateDate?.toIso8601String(),
-      'author': instance.author,
-      'category': instance.category,
-      'link': instance.link,
     };
