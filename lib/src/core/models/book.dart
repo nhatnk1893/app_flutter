@@ -1,6 +1,3 @@
-import 'package:app_flutter/src/core/models/author.dart';
-import 'package:app_flutter/src/core/models/category.dart';
-import 'package:app_flutter/src/core/models/link.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'book.g.dart';
 
@@ -14,9 +11,7 @@ class Book {
   final String description;
   final DateTime startDate;
   final DateTime updateDate;
-  final List<Author> author;
-  final List<Category> category;
-  final List<Link> link;
+  final String author;
 
   Book(
       {this.bookId,
@@ -27,9 +22,7 @@ class Book {
       this.description,
       this.startDate,
       this.updateDate,
-      this.author,
-      this.category,
-      this.link});
+      this.author});
 
   factory Book.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);
   Map<String, dynamic> toJson() => _$BookToJson(this);

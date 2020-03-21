@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:app_flutter/src/core/providers/home_provider.dart';
 import 'package:app_flutter/src/template/components/splash_widget.dart';
 import 'package:app_flutter/src/template/screens/main_screen.dart';

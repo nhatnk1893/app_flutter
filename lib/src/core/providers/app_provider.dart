@@ -3,14 +3,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../util/constants/constant_app.dart';
+
 class AppProvider extends ChangeNotifier {
   AppProvider() {
     checkTheme();
   }
 
   ThemeData themeData = ConstantsApp.lightTheme;
+  Icon iconMode = ConstantsApp.iconTurnOn;
+  String labelMode = ConstantsApp.labelTurnOff;
+
   Key key = UniqueKey();
   GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
+  void changeMode() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    ThemeData t;
+    String r =
+        prefs.getString("theme") == null ? "light" : prefs.getString("theme");
+    if (r == "light") {
+      setTheme(ConstantsApp.darkTheme, "dark");
+      setIcon(ConstantsApp.iconTurnOff);
+      setLabel(ConstantsApp.labelTurnOff);
+    } else {
+      setTheme(ConstantsApp.lightTheme, "light");
+      setIcon(ConstantsApp.iconTurnOn);
+      setLabel(ConstantsApp.labelTurnOn);
+    }
+  }
+
   Future<ThemeData> checkTheme() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     ThemeData t;
@@ -42,6 +64,16 @@ class AppProvider extends ChangeNotifier {
         ));
       });
     });
+    notifyListeners();
+  }
+
+  void setIcon(value) {
+    iconMode = value;
+    notifyListeners();
+  }
+
+  void setLabel(value) {
+    labelMode = value;
     notifyListeners();
   }
 

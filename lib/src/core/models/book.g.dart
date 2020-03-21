@@ -20,18 +20,7 @@ Book _$BookFromJson(Map<String, dynamic> json) {
     updateDate: json['updateDate'] == null
         ? null
         : DateTime.parse(json['updateDate'] as String),
-    author: (json['author'] as List)
-        ?.map((e) =>
-            e == null ? null : Author.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    category: (json['category'] as List)
-        ?.map((e) =>
-            e == null ? null : Category.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    link: (json['link'] as List)
-        ?.map(
-            (e) => e == null ? null : Link.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    author: json['author'] as String,
   );
 }
 
@@ -45,6 +34,4 @@ Map<String, dynamic> _$BookToJson(Book instance) => <String, dynamic>{
       'startDate': instance.startDate?.toIso8601String(),
       'updateDate': instance.updateDate?.toIso8601String(),
       'author': instance.author,
-      'category': instance.category,
-      'link': instance.link,
     };
