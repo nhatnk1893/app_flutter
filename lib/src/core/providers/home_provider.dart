@@ -19,14 +19,15 @@ class HomeProvider extends ChangeNotifier {
     loadBook;
   }
 
-  Future<bool> get checkFetch async {}
-
   Future<List<Book>> get loadBook async {
     bool check;
     setLoading(true);
     _appService
         .checkRecent(ConstantsUrlApi.urlMockApiStore)
-        .then((value) => check = value);
+        .then((value) => check = value)
+        .catchError((e) {
+      throw (e);
+    });
     setLoading(false);
     if (check == false) {
     } else {
