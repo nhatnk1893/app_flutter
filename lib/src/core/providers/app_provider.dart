@@ -19,7 +19,7 @@ class AppProvider extends ChangeNotifier {
 
   void changeMode() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    ThemeData t;
+
     String r =
         prefs.getString("theme") == null ? "light" : prefs.getString("theme");
     if (r == "light") {

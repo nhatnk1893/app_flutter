@@ -6,17 +6,14 @@ class ConstantsApp {
   static String fontFamilyDencingFont = 'DancingFont';
   static Color lightPrimary = Colors.white;
   static Color darkPrimary = Colors.black;
-  static Color lightAccent = Color(0xff06d6a7);
-  static Color darkAccent = Color(0xff06d6a7);
+  static Color lightAccent = Colors.blueAccent;
+  static Color darkAccent = Colors.blueAccent;
   static Color lightBG = Colors.white;
   static Color darkBG = Colors.black;
   static Icon iconTurnOff = Icon(Feather.moon);
   static Icon iconTurnOn = Icon(Feather.sun);
   static String labelTurnOff = "Mode Dark";
   static String labelTurnOn = "Mode Light";
-
-  static Color lightBG1 = Colors.deepPurple;
-  static Color darkBG1 = Colors.deepOrange;
 
   static ThemeData lightTheme = ThemeData(
     fontFamily: "TimesNewRoman",

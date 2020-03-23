@@ -1,6 +1,7 @@
 import 'package:app_flutter/src/core/providers/app_provider.dart';
+import 'package:app_flutter/src/template/screens/book_screen.dart';
 import 'package:app_flutter/src/template/screens/home_screen.dart';
-import 'package:app_flutter/util/constants/constant_app.dart';
+import 'package:app_flutter/src/template/screens/public_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
@@ -23,9 +24,7 @@ class _MainScreenState extends State<MainScreen> {
               physics: NeverScrollableScrollPhysics(),
               controller: _pageController,
               onPageChanged: onPageChanged,
-              children: <Widget>[
-                HomeScreen(),
-              ],
+              children: <Widget>[HomeScreen(), BookScreen(), PublicScreen()],
             ),
             bottomNavigationBar: BottomNavigationBar(
               backgroundColor: Theme.of(context).primaryColor,
@@ -41,14 +40,12 @@ class _MainScreenState extends State<MainScreen> {
                   title: SizedBox(),
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(
-                    Feather.compass,
-                  ),
+                  icon: Icon(Feather.book),
                   title: SizedBox(),
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
-                    Feather.settings,
+                    Feather.users,
                   ),
                   title: SizedBox(),
                 ),

@@ -1,30 +1,37 @@
 import 'dart:convert';
 import 'package:app_flutter/src/core/models/book.dart';
+import 'package:app_flutter/src/core/services/app_service.dart';
+import 'package:app_flutter/src/core/services/book_service.dart';
 import 'package:app_flutter/util/constants/constant_urlApi.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:http/http.dart' as http;
 
 class HomeProvider extends ChangeNotifier {
+  AppService _appService = new AppService();
+  BookService _bookService = new BookService();
+  List<Book> recentBook = new List<Book>();
+  List<Book> topBook = new List<Book>();
+  List<Book> listBook = new List<Book>();
+  bool loading = true;
+  String message;
+
+  // Contructor
   HomeProvider() {
     loadBook;
   }
 
-  String message;
-  List<Book> recentBook = new List<Book>();
-  bool loading = true;
+  Future<bool> get checkFetch async {}
 
   Future<List<Book>> get loadBook async {
+    bool check;
     setLoading(true);
-    notifyListeners();
-    http.Response response = await http.get(ConstantsUrlApi.urlMockApiStore);
-    if (response.statusCode == 200) {
-      List responseJson = json.decode(response.body);
-      recentBook = responseJson.map((m) => new Book.fromJson(m)).toList();
-      setRecent(recentBook);
-      setLoading(false);
+    _appService
+        .checkRecent(ConstantsUrlApi.urlMockApiStore)
+        .then((value) => check = value);
+    setLoading(false);
+    if (check == false) {
     } else {
-      setLoading(true);
+      _bookService.recentTopBook.then((value) => recentBook = value);
+      setTopBook(recentBook);
     }
     return recentBook;
   }
@@ -34,22 +41,13 @@ class HomeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void setMessage(value) {
-    message = value;
-    Fluttertoast.showToast(
-      msg: value,
-      toastLength: Toast.LENGTH_SHORT,
-      timeInSecForIos: 1,
-    );
+  void setTopBook(value) {
+    topBook = value;
     notifyListeners();
   }
 
-  String getMessage() {
-    return message;
-  }
-
-  void setRecent(value) {
-    recentBook = value;
+  void setListBook(value) {
+    listBook = value;
     notifyListeners();
   }
 }
