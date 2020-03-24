@@ -73,9 +73,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             Text(
                               "Categories",
                               style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily:
+                                      ConstantsApp.fontFamilyDencingFont),
                             ),
                           ],
                         ),
@@ -147,9 +148,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             Text(
                               "Recently Added",
                               style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily:
+                                      ConstantsApp.fontFamilyDencingFont),
                             ),
                           ],
                         ),
@@ -163,8 +165,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             if (scrollInfo.metrics.pixels ==
                                     scrollInfo.metrics.maxScrollExtent &&
                                 homeProvider.loadingUpdate) {
-                              print("loadmore");
-                              homeProvider.updateinitPage();
                               homeProvider.updateData();
                             }
                           },

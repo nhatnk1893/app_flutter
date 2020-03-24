@@ -42,6 +42,7 @@ class HomeProvider extends ChangeNotifier {
 
   void updateData() async {
     setLoadingUpdate(false);
+    updateinitPage();
     http.Response response = await http
         .get(ConstantsUrlApi.urlMockApiListStore + "page=$page&&limit=5");
     List responseJson = json.decode(response.body);
@@ -49,7 +50,7 @@ class HomeProvider extends ChangeNotifier {
     setLoadingUpdate(true);
   }
 
-  void updateinitPage() async {
+  void updateinitPage() {
     page = page + 1;
     notifyListeners();
   }

@@ -27,7 +27,7 @@ class ConstantsApp {
       textTheme: TextTheme(
         title: TextStyle(
           fontFamily: "TimesNewRoman",
-          color: Colors.black,
+          color: Colors.blueAccent,
           fontSize: 20,
           fontWeight: FontWeight.w800,
         ),
@@ -48,7 +48,7 @@ class ConstantsApp {
       textTheme: TextTheme(
         title: TextStyle(
           fontFamily: "TimesNewRoman",
-          color: lightBG,
+          color: Colors.blueAccent,
           fontSize: 20,
           fontWeight: FontWeight.w800,
         ),
