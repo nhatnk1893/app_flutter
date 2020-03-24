@@ -1,40 +1,30 @@
 import 'dart:convert';
 import 'package:app_flutter/src/core/models/book.dart';
-import 'package:app_flutter/src/core/services/app_service.dart';
-import 'package:app_flutter/src/core/services/book_service.dart';
 import 'package:app_flutter/util/constants/constant_urlApi.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter/cupertino.dart';
 
 class HomeProvider extends ChangeNotifier {
-  AppService _appService = new AppService();
-  BookService _bookService = new BookService();
-  List<Book> recentBook = new List<Book>();
   List<Book> topBook = new List<Book>();
-  List<Book> listBook = new List<Book>();
   bool loading = true;
-  String message;
 
   // Contructor
   HomeProvider() {
-    loadBook;
+    fetchData;
   }
 
-  Future<List<Book>> get loadBook async {
-    bool check;
+  Future<List<Book>> get fetchData async {
     setLoading(true);
-    _appService
-        .checkRecent(ConstantsUrlApi.urlMockApiStore)
-        .then((value) => check = value)
-        .catchError((e) {
-      throw (e);
-    });
-    setLoading(false);
-    if (check == false) {
+    http.Response response = await http.get(ConstantsUrlApi.urlMockApiStore);
+    if (response.statusCode == 200) {
+      List responseJson = json.decode(response.body);
+      topBook = responseJson.map((m) => new Book.fromJson(m)).toList();
+      setTopBook(topBook);
+      setLoading(false);
     } else {
-      _bookService.recentTopBook.then((value) => recentBook = value);
-      setTopBook(recentBook);
+      setLoading(false);
     }
-    return recentBook;
+    return topBook;
   }
 
   void setLoading(value) {
@@ -44,11 +34,6 @@ class HomeProvider extends ChangeNotifier {
 
   void setTopBook(value) {
     topBook = value;
-    notifyListeners();
-  }
-
-  void setListBook(value) {
-    listBook = value;
     notifyListeners();
   }
 }

@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: CircularProgressIndicator(),
                 )
               : RefreshIndicator(
-                  onRefresh: () => homeProvider.loadBook,
+                  onRefresh: () => homeProvider.fetchData,
                   child: ListView(
                     children: <Widget>[
                       Container(
@@ -45,12 +45,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: ListView.builder(
                             padding: EdgeInsets.symmetric(horizontal: 15),
                             scrollDirection: Axis.horizontal,
-                            itemCount: homeProvider.recentBook.length + 1,
+                            itemCount: homeProvider.topBook.length,
                             shrinkWrap: true,
                             itemBuilder: (BuildContext context, int index) {
-                              if (index == homeProvider.recentBook.length) {}
-                              Book book =
-                                  homeProvider.recentBook.toList()[index];
+                              if (index == homeProvider.topBook.length) {}
+                              Book book = homeProvider.topBook.toList()[index];
                               return Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 5, vertical: 10),
@@ -84,39 +83,36 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(
                         height: 20,
                       ),
-                      Expanded(
-                        child: NotificationListener<ScrollNotification>(
-                          onNotification: (ScrollNotification scrollInfo) {
-                            if (scrollInfo.metrics.pixels ==
-                                scrollInfo.metrics.maxScrollExtent) {}
-                          },
-                          child: ListView.builder(
-                            itemCount: 30,
-                            itemBuilder: (context, index) {
-                              return ListTile(title: Text("Index : $index"));
-                            },
-                          ),
-                        ),
-                      ),
-                      ListView.builder(
-                        padding: EdgeInsets.symmetric(horizontal: 15),
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemCount: homeProvider.recentBook.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          Book book = homeProvider.recentBook.toList()[index];
-                          return Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 5),
-                            child: BookListItem(
-                              img: book.thumnail,
-                              title: book.name,
-                              author: book.author,
-                              desc: book.description,
-                              book: book,
-                            ),
-                          );
-                        },
-                      ),
+                      // Expanded(
+                      //   child: NotificationListener<ScrollNotification>(
+                      //     onNotification: (ScrollNotification scrollInfo) {
+                      //       if (scrollInfo.metrics.pixels ==
+                      //           scrollInfo.metrics.maxScrollExtent) {
+                      //         homeProvider.updateinitPage();
+                      //         homeProvider.updateListBook();
+                      //       }
+                      //     },
+                      //     child: ListView.builder(
+                      //       padding: EdgeInsets.symmetric(horizontal: 15),
+                      //       shrinkWrap: true,
+                      //       physics: NeverScrollableScrollPhysics(),
+                      //       itemCount: homeProvider.listBook.length,
+                      //       itemBuilder: (BuildContext context, int index) {
+                      //         Book book = homeProvider.listBook.toList()[index];
+                      //         return Padding(
+                      //           padding: EdgeInsets.symmetric(horizontal: 5),
+                      //           child: BookListItem(
+                      //             img: book.thumnail,
+                      //             title: book.name,
+                      //             author: book.author,
+                      //             desc: book.description,
+                      //             book: book,
+                      //           ),
+                      //         );
+                      //       },
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                 ),
