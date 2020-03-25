@@ -1,6 +1,8 @@
 import 'package:app_flutter/src/core/models/book.dart';
+import 'package:app_flutter/src/template/screens/detail_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:uuid/uuid.dart';
 
 class BookListItem extends StatelessWidget {
@@ -27,7 +29,20 @@ class BookListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          PageTransition(
+            type: PageTransitionType.rightToLeft,
+            child: Details(
+              book: book,
+              imgTag: imgTag,
+              titleTag: titleTag,
+              authorTag: authorTag,
+            ),
+          ),
+        );
+      },
       child: Container(
         height: 150,
         child: Row(
@@ -48,7 +63,7 @@ class BookListItem extends StatelessWidget {
                 child: Hero(
                   tag: imgTag,
                   child: CachedNetworkImage(
-                    imageUrl: "$img",
+                    imageUrl: "assets/images/img.jpg",
                     placeholder: (context, url) => Container(
                       height: 150,
                       width: 100,

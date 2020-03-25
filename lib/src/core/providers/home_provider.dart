@@ -10,7 +10,8 @@ class HomeProvider extends ChangeNotifier {
   bool loading = true;
   bool loadingUpdate = true;
   int page = 1;
-
+  double scrollLenght = 0.0;
+  double maxScrollLenght = 0.0;
   // Contructor
   HomeProvider() {
     fetchData;
@@ -40,14 +41,16 @@ class HomeProvider extends ChangeNotifier {
     return listBook;
   }
 
-  void updateData() async {
+  void updateData(double c, double d) async {
     setLoadingUpdate(false);
-    if (page < 5) {
+    if (page < (listBook.length / 10) + 2) {
       updateinitPage();
       http.Response response = await http
-          .get(ConstantsUrlApi.urlMockApiListStore + "page=$page&&limit=5");
+          .get(ConstantsUrlApi.urlMockApiListStore + "page=$page&&limit=10");
       List responseJson = json.decode(response.body);
       updateListData(responseJson.map((m) => new Book.fromJson(m)).toList());
+      setLenght(c);
+      setMaxLenght(d);
       setLoadingUpdate(true);
       return;
     }
@@ -81,6 +84,16 @@ class HomeProvider extends ChangeNotifier {
 
   void setLoadingUpdate(value) {
     loadingUpdate = value;
+    notifyListeners();
+  }
+
+  void setLenght(value) {
+    scrollLenght = value;
+    notifyListeners();
+  }
+
+  void setMaxLenght(value) {
+    maxScrollLenght = value;
     notifyListeners();
   }
 }

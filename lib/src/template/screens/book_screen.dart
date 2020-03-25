@@ -1,6 +1,5 @@
 import 'package:app_flutter/src/core/models/book.dart';
 import 'package:app_flutter/src/core/providers/home_provider.dart';
-import 'package:app_flutter/src/template/components/bookCart_widget.dart';
 import 'package:app_flutter/src/template/components/bookListItem_widget.dart';
 import 'package:app_flutter/util/constants/constant_app.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +14,7 @@ class BookScreen extends StatefulWidget {
 }
 
 class _BookScreenState extends State<BookScreen> {
+  ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(
@@ -39,12 +39,23 @@ class _BookScreenState extends State<BookScreen> {
                   onRefresh: () => homeProvider.fetchData,
                   child: Column(
                     children: <Widget>[
+                      Text(homeProvider.page.toString() +
+                          " ----- " +
+                          homeProvider.listBook.length.toString() +
+                          " ----- " +
+                          homeProvider.scrollLenght.toString() +
+                          " ----- " +
+                          homeProvider.maxScrollLenght.toString()),
                       Expanded(
                         child: NotificationListener<ScrollNotification>(
                           onNotification: (ScrollNotification scrollInfo) {
-                            if (scrollInfo.metrics.pixels != 800.0 &&
+                            if (scrollInfo.metrics.pixels ==
+                                    scrollInfo.metrics.maxScrollExtent &&
                                 homeProvider.loadingUpdate) {
-                              homeProvider.updateData();
+                              homeProvider.updateData(
+                                  scrollInfo.metrics.pixels.toDouble(),
+                                  scrollInfo.metrics.maxScrollExtent
+                                      .toDouble());
                             }
                           },
                           child: ListView.builder(
@@ -52,6 +63,7 @@ class _BookScreenState extends State<BookScreen> {
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
                             itemCount: homeProvider.listBook.length,
+                            controller: _scrollController,
                             itemBuilder: (BuildContext context, int index) {
                               Book book = homeProvider.listBook.toList()[index];
                               return Padding(
