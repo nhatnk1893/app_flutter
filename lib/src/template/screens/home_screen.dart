@@ -14,7 +14,8 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen>
+    with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(
@@ -27,7 +28,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   fontSize: 28, fontFamily: ConstantsApp.fontFamilyDencingFont),
             ),
             actions: <Widget>[
-              IconButton(icon: Icon(Feather.search), onPressed: () {}),
+              Padding(
+                child: IconButton(icon: Icon(Feather.search), onPressed: () {}),
+                padding: EdgeInsets.only(right: 12.0),
+              ),
               IconButton(icon: Icon(Feather.more_vertical), onPressed: () {})
             ],
           ),
@@ -61,6 +65,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             },
                           ),
                         ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        child: Text(homeProvider.page.toString()),
                       ),
                       SizedBox(
                         height: 20,
@@ -159,42 +169,25 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(
                         height: 20,
                       ),
-                      Expanded(
-                        child: NotificationListener<ScrollNotification>(
-                          onNotification: (ScrollNotification scrollInfo) {
-                            if (scrollInfo.metrics.pixels ==
-                                    scrollInfo.metrics.maxScrollExtent &&
-                                homeProvider.loadingUpdate) {
-                              homeProvider.updateData();
-                            }
-                          },
-                          child: ListView.builder(
-                            padding: EdgeInsets.symmetric(horizontal: 15),
-                            shrinkWrap: true,
-                            // physics: ScrollableScrollPhysics(),
-                            itemCount: homeProvider.listBook.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              Book book = homeProvider.listBook.toList()[index];
-                              return Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 5),
-                                child: BookListItem(
-                                  img: book.thumnail,
-                                  title: book.name,
-                                  author: book.author,
-                                  desc: book.description,
-                                  book: book,
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: homeProvider.loadingUpdate ? 50.0 : 0,
-                        color: Colors.transparent,
-                        child: Center(
-                          child: new CircularProgressIndicator(),
-                        ),
+                      ListView.builder(
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        scrollDirection: Axis.vertical,
+                        itemCount: homeProvider.listBook.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          Book book = homeProvider.listBook.toList()[index];
+                          return Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 5),
+                            child: BookListItem(
+                              img: book.thumnail,
+                              title: book.name,
+                              author: book.author,
+                              desc: book.description,
+                              book: book,
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),

@@ -57,7 +57,7 @@ class BookListItem extends StatelessWidget {
                       ),
                     ),
                     errorWidget: (context, url, error) => Image.asset(
-                      "assets/images/place.png",
+                      "assets/images/img.jpg",
                       fit: BoxFit.cover,
                       height: 150,
                       width: 100,

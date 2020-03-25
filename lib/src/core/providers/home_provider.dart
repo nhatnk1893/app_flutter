@@ -32,8 +32,8 @@ class HomeProvider extends ChangeNotifier {
   }
 
   Future<List<Book>> get fetchDataStoreNewUpdate async {
-    http.Response response =
-        await http.get(ConstantsUrlApi.urlMockApiListStore + "page=1&&limit=5");
+    http.Response response = await http
+        .get(ConstantsUrlApi.urlMockApiListStore + "page=1&&limit=10");
     List responseJson = json.decode(response.body);
     listBook = responseJson.map((m) => new Book.fromJson(m)).toList();
     setListBook(listBook);
@@ -42,12 +42,16 @@ class HomeProvider extends ChangeNotifier {
 
   void updateData() async {
     setLoadingUpdate(false);
-    updateinitPage();
-    http.Response response = await http
-        .get(ConstantsUrlApi.urlMockApiListStore + "page=$page&&limit=5");
-    List responseJson = json.decode(response.body);
-    updateListData(responseJson.map((m) => new Book.fromJson(m)).toList());
-    setLoadingUpdate(true);
+    if (page < 5) {
+      updateinitPage();
+      http.Response response = await http
+          .get(ConstantsUrlApi.urlMockApiListStore + "page=$page&&limit=5");
+      List responseJson = json.decode(response.body);
+      updateListData(responseJson.map((m) => new Book.fromJson(m)).toList());
+      setLoadingUpdate(true);
+      return;
+    }
+    setLoadingUpdate(false);
   }
 
   void updateinitPage() {

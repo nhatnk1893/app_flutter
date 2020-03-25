@@ -45,7 +45,7 @@ class BookCard extends StatelessWidget {
                 placeholder: (context, url) =>
                     Center(child: CircularProgressIndicator()),
                 errorWidget: (context, url, error) => Image.asset(
-                  "assets/images/place.png",
+                  "assets/images/img.jpg",
                   fit: BoxFit.cover,
                 ),
                 fit: BoxFit.cover,
