@@ -34,19 +34,15 @@ class _MainScreenState extends State<MainScreen> {
               type: BottomNavigationBarType.fixed,
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  icon: Icon(
-                    Feather.home,
-                  ),
+                  icon: Icon(Icons.home),
                   title: SizedBox(),
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Feather.book),
+                  icon: Icon(Icons.library_books),
                   title: SizedBox(),
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(
-                    Feather.users,
-                  ),
+                  icon: Icon(Icons.message),
                   title: SizedBox(),
                 ),
               ],

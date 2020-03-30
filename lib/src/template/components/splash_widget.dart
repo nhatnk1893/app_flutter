@@ -1,30 +1,17 @@
-import 'package:app_flutter/util/constants/constant_app.dart';
-import 'package:app_flutter/util/constants/constant_splash.dart';
 import 'package:flutter/material.dart';
 
 class SplashWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-        child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Icon(
-          ConstantSplash.icon,
-          color: Theme.of(context).accentColor,
-          size: ConstantSplash.sizeIcon,
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/img.jpg"),
+          fit: BoxFit.cover,
         ),
-        SizedBox(height: ConstantSplash.heightSizeBox),
-        Text(
-          "${ConstantsApp.appName}",
-          style: TextStyle(
-              color: Theme.of(context).accentColor,
-              fontSize: ConstantSplash.fontSizeText,
-              fontWeight: FontWeight.bold,
-              fontFamily: ConstantsApp.fontFamilyDencingFont),
-        )
-      ],
-    ));
+      ),
+    );
   }
 }
